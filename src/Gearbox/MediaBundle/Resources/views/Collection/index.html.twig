@@ -3,6 +3,8 @@
 {% block body -%}
     <h1>Collection list</h1>
 
+    <div style="width: 75%; float: left;">
+
     <table class="records_list">
         <thead>
             <tr>
@@ -49,4 +51,10 @@
             </a>
         </li>
     </ul>
+
+    </div>
+    <div style="width: 24%; float: left;">
+        {{ tree|raw }}
+    </div>
+
     {% endblock %}

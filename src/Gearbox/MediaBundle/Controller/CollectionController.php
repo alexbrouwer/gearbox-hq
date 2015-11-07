@@ -23,10 +23,29 @@ class CollectionController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('GearboxMediaBundle:Collection')->findAll();
+        $repo = $em->getRepository('GearboxMediaBundle:Collection');
+        $entities = $repo->findAll();
+
+        $options = array(
+            'decorate' => true,
+            'rootOpen' => '<ul>',
+            'rootClose' => '</ul>',
+            'childOpen' => '<li>',
+            'childClose' => '</li>',
+            'nodeDecorator' => function($node) {
+                return $node['name'];
+            }
+        );
+        $htmlTree = $repo->childrenHierarchy(
+            null, /* starting from root nodes */
+            false, /* true: load all children, false: only direct */
+            $options
+        );
+
 
         return $this->render('GearboxMediaBundle:Collection:index.html.twig', array(
             'entities' => $entities,
+            'tree' => $htmlTree,
         ));
     }
     /**
