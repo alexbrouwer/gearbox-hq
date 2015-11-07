@@ -1,3 +1,7 @@
+gearbox_media:
+    resource: "@GearboxMediaBundle/Resources/config/routing.xml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
