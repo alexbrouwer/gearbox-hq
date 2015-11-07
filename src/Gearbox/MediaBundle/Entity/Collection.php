@@ -2,11 +2,17 @@
 
 namespace Gearbox\MediaBundle\Entity;
 
+use Gedmo\Timestampable\Traits\Timestampable;
+use Gedmo\Tree\Traits\NestedSet;
+
 /**
  * Collection
  */
 class Collection
 {
+    use Timestampable;
+    use NestedSet;
+
     /**
      * @var integer
      */
@@ -23,24 +29,24 @@ class Collection
     private $type;
 
     /**
-     * @var \DateTime
+     * @var Collection[]
      */
-    private $createdAt;
+    private $children;
+
+    /**
+     * @var Collection|null
+     */
+    private $parent;
 
     /**
      * @var string
      */
-    private $createdBy;
-
-    /**
-     * @var \DateTime
-     */
-    private $modifiedAt;
+    private $createdBy = 'system';
 
     /**
      * @var string
      */
-    private $modifiedBy;
+    private $updatedBy = 'system';
 
     /**
      * Get id
@@ -101,27 +107,39 @@ class Collection
     }
 
     /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     *
+     * @return Collection[]
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * @param Collection[] $children
      * @return Collection
      */
-    public function setCreatedAt($createdAt)
+    public function setChildren($children)
     {
-        $this->createdAt = $createdAt;
-
+        $this->children = $children;
         return $this;
     }
 
     /**
-     * Get createdAt
-     *
-     * @return \DateTime
+     * @return Collection|null
      */
-    public function getCreatedAt()
+    public function getParent()
     {
-        return $this->createdAt;
+        return $this->parent;
+    }
+
+    /**
+     * @param Collection|null $parent
+     * @return Collection
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+        return $this;
     }
 
     /**
@@ -149,39 +167,15 @@ class Collection
     }
 
     /**
-     * Set modifiedAt
-     *
-     * @param \DateTime $modifiedAt
-     *
-     * @return Collection
-     */
-    public function setModifiedAt($modifiedAt)
-    {
-        $this->modifiedAt = $modifiedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get modifiedAt
-     *
-     * @return \DateTime
-     */
-    public function getModifiedAt()
-    {
-        return $this->modifiedAt;
-    }
-
-    /**
      * Set modifiedBy
      *
-     * @param string $modifiedBy
+     * @param string $updatedBy
      *
      * @return Collection
      */
-    public function setModifiedBy($modifiedBy)
+    public function setUpdatedBy($updatedBy)
     {
-        $this->modifiedBy = $modifiedBy;
+        $this->updatedBy = $updatedBy;
 
         return $this;
     }
@@ -191,9 +185,17 @@ class Collection
      *
      * @return string
      */
-    public function getModifiedBy()
+    public function getUpdatedBy()
     {
-        return $this->modifiedBy;
+        return $this->updatedBy;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return sprintf('%s (%s)', $this->getName(), $this->getType());
     }
 }
 

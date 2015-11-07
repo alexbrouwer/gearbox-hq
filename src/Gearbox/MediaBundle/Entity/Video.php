@@ -2,11 +2,15 @@
 
 namespace Gearbox\MediaBundle\Entity;
 
+use Gedmo\Timestampable\Traits\Timestampable;
+
 /**
  * Video
  */
 class Video
 {
+    use Timestampable;
+
     /**
      * @var integer
      */
@@ -28,24 +32,14 @@ class Video
     private $releasedAt;
 
     /**
-     * @var \DateTime
+     * @var string
      */
-    private $createdAt;
-
-    /**
-     * @var \DateTime
-     */
-    private $modifiedAt;
+    private $updatedBy = 'system';
 
     /**
      * @var string
      */
-    private $modifiedBy;
-
-    /**
-     * @var string
-     */
-    private $addedBy;
+    private $createdBy = 'system';
 
     /**
      * @var Collection
@@ -135,63 +129,15 @@ class Video
     }
 
     /**
-     * Set added
-     *
-     * @param \DateTime $createdAt
-     *
-     * @return Video
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get added
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set modifiedAt
-     *
-     * @param \DateTime $modifiedAt
-     *
-     * @return Video
-     */
-    public function setModifiedAt($modifiedAt)
-    {
-        $this->modifiedAt = $modifiedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get modifiedAt
-     *
-     * @return \DateTime
-     */
-    public function getModifiedAt()
-    {
-        return $this->modifiedAt;
-    }
-
-    /**
      * Set modifiedBy
      *
-     * @param string $modifiedBy
+     * @param string $updatedBy
      *
      * @return Video
      */
-    public function setModifiedBy($modifiedBy)
+    public function setUpdatedBy($updatedBy)
     {
-        $this->modifiedBy = $modifiedBy;
+        $this->updatedBy = $updatedBy;
 
         return $this;
     }
@@ -201,21 +147,21 @@ class Video
      *
      * @return string
      */
-    public function getModifiedBy()
+    public function getUpdatedBy()
     {
-        return $this->modifiedBy;
+        return $this->updatedBy;
     }
 
     /**
      * Set addedBy
      *
-     * @param string $addedBy
+     * @param string $createdBy
      *
      * @return Video
      */
-    public function setAddedBy($addedBy)
+    public function setCreatedBy($createdBy)
     {
-        $this->addedBy = $addedBy;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -225,9 +171,9 @@ class Video
      *
      * @return string
      */
-    public function getAddedBy()
+    public function getCreatedBy()
     {
-        return $this->addedBy;
+        return $this->createdBy;
     }
 
     /**

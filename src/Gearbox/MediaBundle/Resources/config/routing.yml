@@ -1,0 +1,12 @@
+gearbox_media_collection_video:
+    resource: "@GearboxMediaBundle/Resources/config/routing/video.xml"
+    prefix:   /collection/video
+
+gearbox_media_media_collection:
+    resource: "@GearboxMediaBundle/Resources/config/routing/collection.xml"
+    prefix:   /media/collection
+
+gearbox_media_media_video:
+    resource: "@GearboxMediaBundle/Resources/config/routing/video.xml"
+    prefix:   /media/video
+

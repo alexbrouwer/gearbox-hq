@@ -7,4 +7,7 @@
     <route id="gearbox_media_homepage" path="/hello/{name}">
         <default key="_controller">GearboxMediaBundle:Default:index</default>
     </route>
+
+    <import resource="@GearboxMediaBundle/Resources/config/routing/collection.xml" prefix="/media/collection"/>
+    <import resource="@GearboxMediaBundle/Resources/config/routing/video.xml" prefix="/media/video"/>
 </routes>
