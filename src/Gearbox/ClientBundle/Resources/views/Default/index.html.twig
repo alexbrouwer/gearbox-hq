@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% javascripts
+"@GearboxClientBundle/Resources/public/components/requirejs/require.js"
+"@GearboxClientBundle/Resources/public/main.js"
+ %}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% stylesheets
+    "@GearboxClientBundle/Resources/public/components/nprogress/nprogress.css"
+     "@GearboxClientBundle/Resources/public/components/bootstrap/dist/css/bootstrap.css" %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% endblock %}

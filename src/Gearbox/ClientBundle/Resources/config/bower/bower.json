@@ -1,0 +1,12 @@
+{
+    "name": "gearbox-client",
+    "dependencies": {
+        "bootstrap":"~3.0",
+        "requirejs":"~2.1",
+        "lodash": "~2.3.0",
+        "backbone": "~1.0",
+        "marionette": "~2.0",
+        "jquery": "latest",
+        "nprogress": "~0.2"
+    }
+}

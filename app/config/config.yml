@@ -40,7 +40,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    bundles:        ["GearboxClientBundle"]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -85,3 +85,8 @@ stof_doctrine_extensions:
         default:
             timestampable: true
             tree: true
+
+sp_bower:
+    install_on_warmup: true
+    bundles:
+        GearboxClientBundle: ~
