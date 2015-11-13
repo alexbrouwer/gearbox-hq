@@ -8,6 +8,9 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('GearboxClientBundle:Default:index.html.twig');
+        $debugging = $this->getParameter('kernel.debug');
+        return $this->render('GearboxClientBundle:Default:index.html.twig', array(
+            'environment' => $debugging ? 'development' :'production'
+        ));
     }
 }

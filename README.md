@@ -11,3 +11,6 @@ HTTPDUSER=`ps axo user,comm | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]gin
 sudo setfacl -R -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX app/cache app/logs
 sudo setfacl -dR -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX app/cache app/logs
 ```
+
+- https://github.com/ButuzGOL/gss
+- https://github.com/jolicode/Symfony2BackboneDemo

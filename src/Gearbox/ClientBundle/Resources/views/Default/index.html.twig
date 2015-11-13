@@ -1,17 +1,19 @@
-{% extends 'base.html.twig' %}
+{% extends 'GearboxClientBundle::base.html.twig' %}
 
 {% block body %}
 
 {% javascripts
-"@GearboxClientBundle/Resources/public/components/requirejs/require.js"
+"vendors/alameda/alameda.js"
 "@GearboxClientBundle/Resources/public/main.js"
  %}
+    <script>
+        var environment = "{{ environment }}";
+    </script>
     <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
 
 {% stylesheets
-    "@GearboxClientBundle/Resources/public/components/nprogress/nprogress.css"
-     "@GearboxClientBundle/Resources/public/components/bootstrap/dist/css/bootstrap.css" %}
+    "@nprogress_css" %}
     <link rel="stylesheet" href="{{ asset_url }}" />
 {% endstylesheets %}
 {% endblock %}

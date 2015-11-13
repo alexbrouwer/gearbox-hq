@@ -1,12 +1,27 @@
 {
-    "name": "gearbox-client",
+    "name": "gearbox-hq",
+    "homepage": "https://github.com/alexbrouwer/gearbox-hq",
+    "authors": [
+        "Alexander Brouwer <a.brouwer@e-village.nl>"
+    ],
+    "description": "",
+    "moduleType": [],
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
     "dependencies": {
-        "bootstrap":"~3.0",
-        "requirejs":"~2.1",
+        "nprogress": "latest",
+        "alameda": "latest",
+        "when": "latest",
+        "rest": "latest",
         "lodash": "~2.3.0",
-        "backbone": "~1.0",
-        "marionette": "~2.0",
-        "jquery": "latest",
-        "nprogress": "~0.2"
+        "jquery": "~2.0.3",
+        "marionette": "latest"
     }
 }

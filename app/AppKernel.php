@@ -17,9 +17,11 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
             new Gearbox\ClientBundle\GearboxClientBundle(),
             new Sp\BowerBundle\SpBowerBundle(),
             new Gearbox\MediaBundle\GearboxMediaBundle(),
+            new Gearbox\AuthBundle\GearboxAuthBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

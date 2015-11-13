@@ -89,4 +89,14 @@ stof_doctrine_extensions:
 sp_bower:
     install_on_warmup: true
     bundles:
-        GearboxClientBundle: ~
+        GearboxClientBundle:
+            asset_dir: "%kernel.root_dir%/../web/vendors"
+            cache:
+                # The id of the cache service - It must implement the interface \Doctrine\Common\Cache\Cache
+                id: ~
+                directory: "%kernel.root_dir%/../web/vendors/cache"
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: Gearbox\AuthBundle\Entity\User
